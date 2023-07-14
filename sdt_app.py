@@ -16,7 +16,7 @@ import streamlit as st
 
 
 # Retrieving data
-vehicles = pd.read_csv('/Users/fianug/Documents/GitHub/sprint_4_sdt_project/vehicles_us.csv')
+vehicles = pd.read_csv('vehicles_us.csv')
 
 # creating a category of cars based on class
 
