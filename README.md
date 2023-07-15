@@ -4,3 +4,5 @@ In this project, python virtual environments were created and monitored, a web a
 
 GitHub repository link: https://github.com/gfianu/sprint_4_sdt_project
 Render url: https://sdt-sprint-4-project.onrender.com/
+
+NOTE: This is a revised version of the project. As per reviewer comments, primary data preprocessing was performed. Missing values in the columns of the dataset were filled in both the EDA.ipynb and sdt_app.py documents. The links above are the same for accessing the revised project. 
