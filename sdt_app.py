@@ -4,8 +4,6 @@
 # # Sprint 4_Software Development Tools
 # __________________________________________________________
 
-# In[1]:
-
 
 # Importing all libraries
 import pandas as pd
@@ -29,7 +27,6 @@ def car_class(x):
         return 'old vehicle'
       
 vehicles['class'] = vehicles['price'].apply(car_class)
-
 # Filling in missing values in dataset
 #Finding median year for model
 median_year = vehicles['model_year'].median()
