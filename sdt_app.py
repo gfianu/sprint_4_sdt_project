@@ -27,30 +27,29 @@ def car_class(x):
         return 'old vehicle'
       
 vehicles['class'] = vehicles['price'].apply(car_class)
+
 # Filling in missing values in dataset
+
 #Finding median year for model
-median_year = vehicles['model_year'].median()
+median_year = vehicles.groupby('model')['model_year'].transform('median')
 
 # Filling in missing values for model_year
 vehicles['model_year'] = vehicles['model_year'].fillna(median_year)
 
 # Finding median cylinder
-median_cylinder = vehicles['cylinders'].median()
+median_cylinder = vehicles.groupby('model')['cylinders'].transform('median')
 
 # Filling in missing values for cylinders
 vehicles['cylinders'] = vehicles['cylinders'].fillna(median_cylinder)
 
-# Finding median odometer
-median_odometer = vehicles['odometer'].median()
+# Finding mean odometer
+mean_odometer = vehicles.groupby(['model', 'model_year'])['odometer'].transform('mean')
 
 # Filling in missing values for cylinders
-vehicles['odometer'] = vehicles['odometer'].fillna(median_odometer)
+vehicles['odometer'] = vehicles['odometer'].fillna(mean_odometer)
 
-#Determining popular car colors 
-vehicles['paint_color'].value_counts()
-
-#Since white is the most popular color, I will fill in missing car colors as white
-vehicles['paint_color'] = vehicles['paint_color'].fillna('white')
+#fill in missing car colors as unknown
+vehicles['paint_color'] = vehicles['paint_color'].fillna('unknown')
 
 #Filling in missing values for is_4wd column
 vehicles['is_4wd'].unique()
