@@ -27,8 +27,43 @@ def car_class(x):
         return 'normal vehicle'
     else:
         return 'old vehicle'
-    
+      
 vehicles['class'] = vehicles['price'].apply(car_class)
+
+# Filling in missing values in dataset
+#Finding median year for model
+median_year = vehicles['model_year'].median()
+median_year
+
+# Filling in missing values for model_year
+vehicles['model_year'] = vehicles['model_year'].fillna(median_year)
+
+# Finding median cylinder
+median_cylinder = vehicles['cylinders'].median()
+median_cylinder
+
+# Filling in missing values for cylinders
+vehicles['cylinders'] = vehicles['cylinders'].fillna(median_cylinder)
+
+# Finding median odometer
+median_odometer = vehicles['odometer'].median()
+median_odometer
+
+# Filling in missing values for cylinders
+vehicles['odometer'] = vehicles['odometer'].fillna(median_odometer)
+
+#Determining popular car colors 
+vehicles['paint_color'].value_counts()
+
+#Since white is the most popular color, I will fill in missing car colors as white
+vehicles['paint_color'] = vehicles['paint_color'].fillna('white')
+
+#Filling in missing values for is_4wd column
+vehicles['is_4wd'].unique()
+
+# Only the value 1 is provided in this column.
+# This suggests that if 1 means yes, then 0 means no
+vehicles['is_4wd'] = vehicles['is_4wd'].fillna(0)
 
 # Determining vehicle models 
 vehicle_models = vehicles['model'].sort_values().unique()
