@@ -33,21 +33,18 @@ vehicles['class'] = vehicles['price'].apply(car_class)
 # Filling in missing values in dataset
 #Finding median year for model
 median_year = vehicles['model_year'].median()
-median_year
 
 # Filling in missing values for model_year
 vehicles['model_year'] = vehicles['model_year'].fillna(median_year)
 
 # Finding median cylinder
 median_cylinder = vehicles['cylinders'].median()
-median_cylinder
 
 # Filling in missing values for cylinders
 vehicles['cylinders'] = vehicles['cylinders'].fillna(median_cylinder)
 
 # Finding median odometer
 median_odometer = vehicles['odometer'].median()
-median_odometer
 
 # Filling in missing values for cylinders
 vehicles['odometer'] = vehicles['odometer'].fillna(median_odometer)
