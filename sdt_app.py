@@ -82,11 +82,11 @@ selected_type = st.sidebar.multiselect('Vehicle types',vehicle_types, vehicle_ty
 selected_condition = st.sidebar.multiselect('Vehicle condition',vehicle_condition, vehicle_condition)
 
 # Filtering data
-types_conditions = vehicles[(vehicles.type.isin(vehicle_types)) & (vehicles.condition.isin(vehicle_condition))]
+vehicles_filtered = vehicles[(vehicles.type.isin(selected_type)) & (vehicles.condition.isin(selected_condition))]
 
 st.header('Display vehicles by types and conditions')
-st.write('Data Dimension: ' + str(types_conditions.shape[0]) + ' rows and ' + str(types_conditions.shape[1]) + ' columns.')
-st.dataframe(types_conditions)
+st.write('Data Dimension: ' + str(vehicles_filtered.shape[0]) + ' rows and ' + str(vehicles_filtered.shape[1]) + ' columns.')
+st.dataframe(vehicles_filtered)
 
 # Streamlit data exploration using plotly_express
 st.header('Analysis of vehicle types based on price (in USD) and condition')
