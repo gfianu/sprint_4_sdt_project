@@ -25,7 +25,6 @@ st.sidebar.header('User Input Features')
 vehicles = pd.read_csv('vehicles_us.csv')
 
 # creating a category of cars based on class
-
 def car_class(x):
     if x >= 75000:
         return 'luxury vehicle'
